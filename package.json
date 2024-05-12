@@ -1,10 +1,11 @@
 {
+  "type": "module",
   "name": "create-mirogo",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
   "author": "mirrorgo",
   "files": [
-    "index.js",
+    "index2.mjs",
     "template-*",
     "dist"
   ],
@@ -21,5 +22,9 @@
     "url": "git+https://github.com/mirrorgo/create-mirogo.git"
   },
   "keywords": [],
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "zx": "^8.0.2"
+  }
 }
