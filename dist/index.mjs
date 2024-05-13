@@ -1,13 +1,2 @@
 #!/usr/bin/env zx
-import jiti from "file:///home/mirrorgo/released/create-mirogo/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/lib/index.js";
-
-/** @type {import("/home/mirrorgo/released/create-mirogo/src/index")} */
-const _module = jiti(null, {
-  "esmResolve": true,
-  "interopDefault": true,
-  "alias": {
-    "create-mirogo": "/home/mirrorgo/released/create-mirogo"
-  }
-})("/home/mirrorgo/released/create-mirogo/src/index.mjs");
-
-export default _module;
+import{chalk as e}from"zx";import{readdir as s}from"fs/promises";import l from"prompts";const o=console.log,n=[{type:"select",name:"color",message:"Pick a color",choices:[{title:"yes",value:"yes"},{title:"no",value:"no"},{title:"Red",description:"This option has a description.",value:"#ff0000"},{title:"Green",value:"#00ff00"},{title:"Yellow",value:"#ffff00",disabled:!0}]}],c=await l(n),t=c.color;if(t.toLowerCase()==="yes")o(e.green("Creating moodboard..."));else if(t.toLowerCase()==="no"){const i="components";try{const r=await s(i);o(e.green("Files in components directory:")),r.forEach(a=>o(e.blue(a)))}catch(r){o(e.red("Error reading directory:"),r)}}else o(e.red("Invalid answer. Please answer 'yes' or 'no'."));

@@ -2,15 +2,12 @@
 
 import { chalk } from "zx";
 import { readdir } from "fs/promises";
+import { PromptObject } from "prompts";
 import prompts from "prompts";
 
 const log = console.log;
 
-// const answer = await question(
-//   chalk.yellow("Do you want to create a moodboard? (yes/no): ")
-// );
-
-const questions = [
+const questions: PromptObject<string>[] = [
   {
     type: "select",
     name: "color",
@@ -29,7 +26,9 @@ const questions = [
   },
 ];
 
-const answer = (await prompts(questions)).color;
+const result: prompts.Answers<"color"> = await prompts(questions);
+
+const answer = result.color;
 
 if (answer.toLowerCase() === "yes") {
   log(chalk.green("Creating moodboard..."));
